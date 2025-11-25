@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>albums4you - Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <div class="logo">albums4you</div>
+        <form id="search">
+            <input type="text" placeholder="Search albums..." id="inputSearch">
+            <button type="submit" id="submitBtn"><i class="fas fa-search"></i></button>
+        </form>
+        <nav id="nav">
+            <a href="#">Home</a>
+            <a href="#">Albums</a>
+            <a href="#">Contact</a>
+            
+        </nav>
+    </header>
+
+    <main>
+
+    </main>
+
+    <footer>
+        <div id="abv">
+            <div id="country">
+                <img src="flagNp.png" alt="npFlag">
+                <p>Nepal</p>
+            </div>
+            <div id="cities">
+                <h4>We're available at:</h4>
+                <ul>
+                    <li>Kathmandu</li>
+                    <li>Bhaktapur</li>
+                    <li>Lalitpur</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="socials">
+            <h3>Follow us</h3>
+            <img src="fb.png" alt="facebook">
+            <img src="ig.webp" alt="instagram">
+        </div>
+
+        <p class="copy">&copy; 2025 albums4you. All rights reserved.</p>
+    </footer>
+<script>
+    const nav = document.getElementById('nav');
+    fetch('sendData.php')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if(data.loggedin){
+                nav.innerHTML = `<a href="#">Home</a><a href="#">Albums</a><a href="#">Contact</a><a href="profile.php">${data.username}</a>`;
+            } else {
+                nav.innerHTML = '<a href="#">Home</a><a href="#">Albums</a><a href="#">Contact</a><a href="login.php">Login</a>';
+            }
+            
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            nav.innerHTML = '<a href="#">Home</a><a href="#">Albums</a><a href="#">Contact</a><a href="login.php">Login</a>';
+        });
+
+</script>
+</body>
+</html>
