@@ -52,6 +52,91 @@ nav a:hover {
 #submitBtn:hover {
     background-color: #005ec9;
 }
+.act{
+    color: #0077ff;
+    
+}
+/* main */
+/* Main container */
+#international,#local {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Album list wrapper */
+.album-list,.local-album-lists {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual album card */
+.int_alb_cont {
+    width: 250px; /* adjust width for multiple cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    background: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.int_alb_cont:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+/* Album image */
+.int_alb_cont img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Author details already styled */
+.author-det {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+}
+
+.album-title {
+    font-weight: 600;
+}
+
+.album-artist {
+    color: #555;
+}
+
+/* Price already styled */
+.price {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-price {
+    color: royalblue;
+    font-weight: 600;
+}
+
+.old-price del {
+    color: #999;
+}
+
+.discount {
+    color: red;
+    font-weight: 500;
+}
+
 
 /* Footer */
 footer {
@@ -110,6 +195,7 @@ footer {
     font-size: 14px;
     color: #555;
 }
+
 
 /* Larger Screens */
 @media (min-width: 768px) {
