@@ -8,7 +8,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <?php
 session_start();
+
 require_once 'db.php';
+if($_SESSION['loggedin'] !== true){
+    header("Location: login.php");
+    exit();
+}
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $username = $_POST['username'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
